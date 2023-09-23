@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DimCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{F9E08BEF-A24F-4A75-8763-E98FD38FBF16}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{B91FE293-B15F-43F0-AB76-8C08329D0FA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1111,13 +1111,29 @@ where [refTable].[CustomerID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="200,41.6"
-          Id="Package\Get Database RowVersion"
-          TopLeft="287.857143469915,32.8823529123538" />
+          Size="168.8,41.6"
+          Id="Package\Add New Customer"
+          TopLeft="323.571429260227,283.552940955273" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Empty staging area"
+          TopLeft="321.428572112809,201.882352764219" />
         <NodeLayout
           Size="220.8,41.6"
           Id="Package\Get Customer LastRowVersion"
           TopLeft="283.571429175078,110.882352843984" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Get Database RowVersion"
+          TopLeft="287.857143469915,32.8823529123538" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Sync Customer Data"
+          TopLeft="378.571429377308,359.87058802013" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Update table rowVersion"
+          TopLeft="422.142858041489,436.599999783495" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="390.914286322496,74.4823529123538">
@@ -1140,10 +1156,6 @@ where [refTable].[CustomerID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\Empty staging area"
-          TopLeft="321.428572112809,201.882352764219" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
           TopLeft="393.971429175078,152.482352843984">
@@ -1178,10 +1190,6 @@ where [refTable].[CustomerID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\Add New Customer"
-          TopLeft="323.571429260227,283.552940955273" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="407.100000686518,243.482352764219">
@@ -1204,10 +1212,6 @@ where [refTable].[CustomerID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Sync Customer Data"
-          TopLeft="378.571429377308,359.87058802013" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
           TopLeft="407.971429260227,325.152940955273">
@@ -1242,10 +1246,6 @@ where [refTable].[CustomerID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="194.4,41.6"
-          Id="Package\Update table rowVersion"
-          TopLeft="422.142858041489,436.599999783495" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
           TopLeft="465.771429377308,401.47058802013">
@@ -1414,20 +1414,12 @@ where [refTable].[CustomerID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Add New Customer\Get Rows Changes">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Add New Customer\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1437,7 +1429,7 @@ where [refTable].[CustomerID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1445,7 +1437,15 @@ where [refTable].[CustomerID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Add New Customer\Load Staging">
+    design-time-name="Package\Add New Customer\Get Rows Changes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Add New Customer\Add New Customer">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1458,7 +1458,7 @@ where [refTable].[CustomerID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Add New Customer\Add New Customer">
+    design-time-name="Package\Add New Customer\Load Staging">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

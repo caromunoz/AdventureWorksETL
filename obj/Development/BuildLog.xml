@@ -2,18 +2,28 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>AdventureWorksETL</Name>
-    <LastWriteTime>2023-09-17T23:17:27.1521364Z</LastWriteTime>
+    <LastWriteTime>2023-09-23T03:36:49.2284456Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>DimCustomer.dtsx</Name>
-      <LastWriteTime>2023-09-17T23:34:24.137712Z</LastWriteTime>
+      <LastWriteTime>2023-09-23T04:56:37.4736496Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimProduct.dtsx</Name>
-      <LastWriteTime>2023-09-17T23:34:24.1151158Z</LastWriteTime>
+      <LastWriteTime>2023-09-18T02:40:15.1450839Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DimStagePerson.dtsx</Name>
+      <LastWriteTime>2023-09-23T03:13:10.936183Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>FactOrders.dtsx</Name>
+      <LastWriteTime>2023-09-23T13:37:48.6356869Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

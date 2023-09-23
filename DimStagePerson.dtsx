@@ -1,0 +1,1422 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/22/2023 10:28:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BN9HONK"
+  DTS:CreatorName="DESKTOP-BN9HONK\MIGUEL ANGEL"
+  DTS:DTSID="{6EE9409A-4689-4E34-B821-C5908874C87C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5228.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimStagePerson"
+  DTS:PackageType="5"
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{61B7100C-6883-40D7-8229-BFBC651A74C9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[detination.AdventureWorks2019DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CD333B24-3C65-44CA-B7E1-8C3F9C76100B}"
+      DTS:ObjectName="detination.AdventureWorks2019DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorks2019DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DimStagePerson-{CD333B24-3C65-44CA-B7E1-8C3F9C76100B}localhost.AdventureWorks2019DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[source.AdventureWorks2019]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8B3B42C0-52E7-4B6B-956B-19D45F717266}"
+      DTS:ObjectName="source.AdventureWorks2019">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DimStagePerson-{8B3B42C0-52E7-4B6B-956B-19D45F717266}localhost.AdventureWorks2019;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F131D80C-FF56-4698-B2C0-172E434A47E8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DBTSValue">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DD2274BE-64D3-4C0B-A815-C1397D38F3F7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastRowValue">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add New SalesPerson"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A20FF03B-3222-4BF3-B255-EF57FB638331}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add New SalesPerson"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Add New SalesPerson\Add New SalesPerson"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Add New SalesPerson"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Add New SalesPerson\Add New SalesPerson.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[detination.AdventureWorks2019DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[detination.AdventureWorks2019DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[SalesQuota]"
+                      cachedDataType="cy"
+                      cachedName="SalesQuota"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesQuota]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesQuota]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[Bonus]"
+                      cachedDataType="cy"
+                      cachedName="Bonus"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[Bonus]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[Bonus]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[CommissionPct]"
+                      cachedDataType="cy"
+                      cachedName="CommissionPct"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[CommissionPct]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[CommissionPct]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[SalesYTD]"
+                      cachedDataType="cy"
+                      cachedName="SalesYTD"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesYTD]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesYTD]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[SalesLastYear]"
+                      cachedDataType="cy"
+                      cachedName="SalesLastYear"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesLastYear]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesLastYear]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonIDSK]"
+                      dataType="i4"
+                      name="SalesPersonIDSK" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesQuota]"
+                      dataType="cy"
+                      name="SalesQuota" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[Bonus]"
+                      dataType="cy"
+                      name="Bonus" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[CommissionPct]"
+                      dataType="cy"
+                      name="CommissionPct" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesYTD]"
+                      dataType="cy"
+                      name="SalesYTD" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesLastYear]"
+                      dataType="cy"
+                      name="SalesLastYear" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add New SalesPerson\Add New SalesPerson.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Add New SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Add New SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Add New SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add New SalesPerson\Get Rows Changes"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get Rows Changes"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [dbo].[GetSalesPersonChangesByRowVersion] ?, ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"@startRow:Input",{DD2274BE-64D3-4C0B-A815-C1397D38F3F7};"@endRow:Input",{F131D80C-FF56-4698-B2C0-172E434A47E8};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Add New SalesPerson\Get Rows Changes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[source.AdventureWorks2019]"
+                  connectionManagerRefId="Package.ConnectionManagers[source.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesQuota]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[SalesQuota]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesQuota]"
+                      name="SalesQuota"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[Bonus]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[Bonus]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[Bonus]"
+                      name="Bonus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[CommissionPct]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[CommissionPct]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[CommissionPct]"
+                      name="CommissionPct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesYTD]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[SalesYTD]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesYTD]"
+                      name="SalesYTD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesLastYear]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[SalesLastYear]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesLastYear]"
+                      name="SalesLastYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[SalesQuota]"
+                      dataType="cy"
+                      name="SalesQuota" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[Bonus]"
+                      dataType="cy"
+                      name="Bonus" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[CommissionPct]"
+                      dataType="cy"
+                      name="CommissionPct" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[SalesYTD]"
+                      dataType="cy"
+                      name="SalesYTD" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[SalesLastYear]"
+                      dataType="cy"
+                      name="SalesLastYear" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[SalesQuota]"
+                      dataType="cy"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[SalesQuota]"
+                      name="SalesQuota" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[Bonus]"
+                      dataType="cy"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[Bonus]"
+                      name="Bonus" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[CommissionPct]"
+                      dataType="cy"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[CommissionPct]"
+                      name="CommissionPct" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[SalesYTD]"
+                      dataType="cy"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[SalesYTD]"
+                      name="SalesYTD" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[SalesLastYear]"
+                      dataType="cy"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[SalesLastYear]"
+                      name="SalesLastYear" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add New SalesPerson\Load Staging"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load Staging"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[staging].[SalesPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Add New SalesPerson\Load Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[detination.AdventureWorks2019DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[detination.AdventureWorks2019DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[SalesQuota]"
+                      cachedDataType="cy"
+                      cachedName="SalesQuota"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesQuota]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesQuota]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[Bonus]"
+                      cachedDataType="cy"
+                      cachedName="Bonus"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[Bonus]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[Bonus]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[CommissionPct]"
+                      cachedDataType="cy"
+                      cachedName="CommissionPct"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[CommissionPct]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[CommissionPct]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[SalesYTD]"
+                      cachedDataType="cy"
+                      cachedName="SalesYTD"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesYTD]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesYTD]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[SalesLastYear]"
+                      cachedDataType="cy"
+                      cachedName="SalesLastYear"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesLastYear]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[SalesLastYear]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[SalesPersonIDSK]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonIDSK"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonIDSK]"
+                      lineageId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Match Output].Columns[SalesPersonIDSK]" />
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonIDSK]"
+                      dataType="i4"
+                      name="SalesPersonIDSK" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesQuota]"
+                      dataType="cy"
+                      name="SalesQuota" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[Bonus]"
+                      dataType="cy"
+                      name="Bonus" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[CommissionPct]"
+                      dataType="cy"
+                      name="CommissionPct" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesYTD]"
+                      dataType="cy"
+                      name="SalesYTD" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[SalesLastYear]"
+                      dataType="cy"
+                      name="SalesLastYear" />
+                    <externalMetadataColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add New SalesPerson\Load Staging.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Load Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Load Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Load Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Add New SalesPerson\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimSalesPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimSalesPerson]) [refTable]
+where [refTable].[BusinessEntityID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SalesPersonIDSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BusinessEntityID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MiddleName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StoreName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesQuota" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Bonus" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CommissionPct" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesYTD" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesLastYear" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[BusinessEntityID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Add New SalesPerson\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[detination.AdventureWorks2019DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[detination.AdventureWorks2019DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Add New SalesPerson\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Add New SalesPerson\Lookup.Inputs[Lookup Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output].Columns[BusinessEntityID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BusinessEntityID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Add New SalesPerson\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Match Output].Columns[SalesPersonIDSK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Match Output].Columns[SalesPersonIDSK]"
+                      name="SalesPersonIDSK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SalesPersonIDSK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add New SalesPerson\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Add New SalesPerson\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Add New SalesPerson\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Add New SalesPerson.Paths[Lookup Match Output]"
+              endId="Package\Add New SalesPerson\Load Staging.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Add New SalesPerson\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Add New SalesPerson.Paths[Lookup No Match Output]"
+              endId="Package\Add New SalesPerson\Add New SalesPerson.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Add New SalesPerson\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Add New SalesPerson.Paths[OLE DB Source Output]"
+              endId="Package\Add New SalesPerson\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Add New SalesPerson\Get Rows Changes.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Empty staging area"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{ED258DF0-10D5-4F17-9267-8BAF7956E8F2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Empty staging area"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CD333B24-3C65-44CA-B7E1-8C3F9C76100B}"
+          SQLTask:SqlStatementSource="TRUNCATE table [staging].[SalesPerson]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Database RowVersion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{24ED3B93-0C58-4E18-90D0-603209F04049}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Database RowVersion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8B3B42C0-52E7-4B6B-956B-19D45F717266}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[GetDatabaseRowVersion]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DBTS"
+            SQLTask:DtsVariableName="User::DBTSValue" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get SalesPerson LastRowVersion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{CB4AAE49-AF63-4853-9A11-A0BF2542B57E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get SalesPerson LastRowVersion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CD333B24-3C65-44CA-B7E1-8C3F9C76100B}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'SalesPerson'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LastRowVersion"
+            SQLTask:DtsVariableName="User::LastRowValue" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sync SalesPerson Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{2F33D701-9B51-4008-ACC4-0376874088A6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sync SalesPerson Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CD333B24-3C65-44CA-B7E1-8C3F9C76100B}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimSalesPerson]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Table RowVersion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{3512A446-A323-4ADB-B313-F70C4B9E5A04}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Table RowVersion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CD333B24-3C65-44CA-B7E1-8C3F9C76100B}"
+          SQLTask:SqlStatementSource="EXECUTE&#x9;[dbo].[UpdateLastPackageRowVersion] @tableName= 'SalesPerson', @lastRowVersion=?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::DBTSValue"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{99C6CA57-FF4A-4BC6-9FC4-7B7A7C30DEB3}"
+      DTS:From="Package\Get Database RowVersion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Get SalesPerson LastRowVersion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{38B02458-74B6-440B-8DD6-B3C41EB1F803}"
+      DTS:From="Package\Get SalesPerson LastRowVersion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Empty staging area" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{B58878AF-50ED-4547-B148-C8E954D67492}"
+      DTS:From="Package\Empty staging area"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Add New SalesPerson" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{0BE478D1-170B-47AB-A3B1-6463A2EED140}"
+      DTS:From="Package\Add New SalesPerson"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Sync SalesPerson Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{41F2230C-72E9-401E-B638-4D13D8CA6591}"
+      DTS:From="Package\Sync SalesPerson Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\Update Table RowVersion" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Get Database RowVersion"
+          TopLeft="180.714286098979,25.99999997721" />
+        <NodeLayout
+          Size="232,41.6"
+          Id="Package\Get SalesPerson LastRowVersion"
+          TopLeft="170.000000361885,110.882352843984" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="283.357143230432,67.59999997721">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2823528667738"
+              Start="0,0"
+              End="0,35.7823528667738">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7823528667738" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Empty staging area"
+          TopLeft="200.000000425747,185.0588233672" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="285.400000393816,152.482352843984">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5764705232167"
+              Start="0,0"
+              End="0,25.0764705232167">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.0764705232167" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Add New SalesPerson"
+          TopLeft="213.571429026066,271.47058799734" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="284.800000425747,226.6588233672">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.7714286003188,44.8117646301391"
+              Start="0,0"
+              End="18.7714286003188,37.3117646301391">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4058823150695" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.4058823150695"
+                    Point2="0,22.4058823150695"
+                    Point3="4,22.4058823150695" />
+                  <mssgle:LineSegment
+                    End="14.7714286003188,22.4058823150695" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.7714286003188,22.4058823150695"
+                    Point2="18.7714286003188,22.4058823150695"
+                    Point3="18.7714286003188,26.4058823150695" />
+                  <mssgle:LineSegment
+                    End="18.7714286003188,37.3117646301391" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Sync SalesPerson Data"
+          TopLeft="211.428571878647,344.682352650269" />
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\Update Table RowVersion"
+          TopLeft="260.000000553472,430.517646757191" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="303.900000452357,313.07058799734">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.6117646529291"
+              Start="0,0"
+              End="0,24.1117646529291">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1117646529291" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 4]"
+          TopLeft="304.228571878647,386.282352650269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.3714286748244,44.2352941069224"
+              Start="0,0"
+              End="55.3714286748244,36.7352941069224">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1176470534612" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1176470534612"
+                    Point2="0,22.1176470534612"
+                    Point3="4,22.1176470534612" />
+                  <mssgle:LineSegment
+                    End="51.3714286748244,22.1176470534612" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.3714286748244,22.1176470534612"
+                    Point2="55.3714286748244,22.1176470534612"
+                    Point3="55.3714286748244,26.1176470534612" />
+                  <mssgle:LineSegment
+                    End="55.3714286748244,36.7352941069224" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Add New SalesPerson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Add New SalesPerson\Get Rows Changes"
+          TopLeft="315.714286386359,32.1176470306712" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Add New SalesPerson\Lookup"
+          TopLeft="345.714286450221,114.705882252397" />
+        <EdgeLayout
+          Id="Package\Add New SalesPerson.Paths[OLE DB Source Output]"
+          TopLeft="400.51428641829,73.7176470306712">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.9882352217259"
+              Start="0,0"
+              End="0,33.4882352217259">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4882352217259" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Add New SalesPerson\Load Staging"
+          TopLeft="204.285714720585,206.470588054315" />
+        <EdgeLayout
+          Id="Package\Add New SalesPerson.Paths[Lookup Match Output]"
+          TopLeft="402.114286450221,156.305882252397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-127.828571729636,50.1647058019176"
+              Start="0,0"
+              End="-127.828571729636,42.6647058019176">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0823529009588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0823529009588"
+                    Point2="0,25.0823529009588"
+                    Point3="-4,25.0823529009588" />
+                  <mssgle:LineSegment
+                    End="-123.828571729636,25.0823529009588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-123.828571729636,25.0823529009588"
+                    Point2="-127.828571729636,25.0823529009588"
+                    Point3="-127.828571729636,29.0823529009588" />
+                  <mssgle:LineSegment
+                    End="-127.828571729636,42.6647058019176" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-112.105672583568,30.0823529009588,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Add New SalesPerson\Add New SalesPerson"
+          TopLeft="448.571429526319,215.647058634506" />
+        <EdgeLayout
+          Id="Package\Add New SalesPerson.Paths[Lookup No Match Output]"
+          TopLeft="419.580953116887,156.305882252397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118.990476409432,59.3411763821094"
+              Start="0,0"
+              End="118.990476409432,51.8411763821094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2344384665398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2344384665398"
+                    Point2="0,24.2344384665398"
+                    Point3="4,24.2344384665398" />
+                  <mssgle:LineSegment
+                    End="114.990476409432,24.2344384665398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.990476409432,24.2344384665398"
+                    Point2="118.990476409432,24.2344384665398"
+                    Point3="118.990476409432,28.2344384665398" />
+                  <mssgle:LineSegment
+                    End="118.990476409432,51.8411763821094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="3.68885148596612,29.2344384665398,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Add New SalesPerson\Get Rows Changes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Add New SalesPerson\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimSalesPerson]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Add New SalesPerson\Load Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Add New SalesPerson\Add New SalesPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
